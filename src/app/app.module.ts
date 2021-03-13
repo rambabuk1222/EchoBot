@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { UserSettingsFormComponent } from './user-settings-form/user-settings-form.component';
-import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -13,12 +13,9 @@ import { CommonModule } from '@angular/common';
     UserSettingsFormComponent
   ],
   imports: [
-    CommonModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
-    
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,55 +1,48 @@
 <div class="container">
 <p>user-settings-form works!</p>
-<form #form="ngForm">
-
+<form #form="ngForm" ngNativeValidate>
+  <div class="form-group">
+  <label for="title">Title</label>
+  <input id="title" name="title" pattern="B.*" placeholder="Mr, Mrs .." [(ngModel)]="usersetting.title" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="firstname">Firstname</label>
+    <input id="firstname" minlength="3" name="firstname" [(ngModel)]="usersetting.firstname"  class="form-control">
+    </div> 
     <div class="form-group">
-        <label for="name">Name</label>
-        <input id="name" name="name" class="form-control">
+      <label for="lastname">Lastname</label>
+      <input id="lastname"#firstnameRef minlength="3" name="lastname" [(ngModel)]="usersetting.lastname" class="form-control">
+      <h4>{{firstnameRef.className}}</h4>
+      </div> 
+      <div class="form-check form-group">
+        
+        <input id="married" type="checkbox" name="married" [(ngModel)]="usersetting.married" class="form-check-input">
+        <label class="form-check-label" for="married">Married</label>
+        </div> 
+        <p>favourite color</p>
         <div class="form-check form-group">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDisabled" disabled>
-            <label class="form-check-label" for="flexCheckDisabled">
-              Disabled checkbox
-            </label>
-          </div>
-          <p>Please fill the data</p>
+         
+          <input id="redfav" type="radio" required value="red" name="fav" [(ngModel)]="usersetting.fav" class="form-check-input">
+          <label class="form-check-label" for="redfav">red</label>
+          </div> 
           <div class="form-check form-group">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
-            <label class="form-check-label" for="flexCheckCheckedDisabled">
-              Disabled checked checkbox
-            </label>
-          </div>
-          <div class="form-check form-group">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              Default radio
-            </label>
-          </div>
-          <div class="form-check form-group">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-            <label class="form-check-label" for="flexRadioDefault2">
-              Default checked radio
-            </label>
-          </div>
-          
-    </div>
-    <div class="form-group">
-        <label for="slc">Some selection</label>
-        <select class="form-control" id="slc" aria-label="Default select example">
-          <option selected>Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="txt">Please enter more</label>
-        <textarea name="txt" class="form-control" id="txt" cols="30" rows="10"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="dob">Please select date</label>
-        <input type="date" id="dob" name="dob" class="form-control">
-    </div>
-    <button class="btn btn-primary" >Send</button>
+            
+            <input id="yellowfav" type="radio" value="yellow" name="fav" [(ngModel)]="usersetting.fav" class="form-check-input">
+            <label class="form-check-label" for="yellowfav">yellow</label>
+            </div> 
+            <div class="form-check form-group">
+              <input id="greenfav" type="radio" value="green" name="fav" [(ngModel)]="usersetting.fav" class="form-check-input">
+              <label class="form-check-label" for="greenfav">green</label>  
+            </div> 
+        <div class="form-group">
+<label for="interest">Interest in</label>
+<select name="interest" class="form-control" id="interest" [(ngModel)]="usersetting.interest"  >
+  <option>one</option> 
+  <option>two</option> 
+</select>
+        </div>
+  <button class="btn btn-primary">ok</button> 
 </form>
 </div>
-{{form | json }}
+
+{{ originalusersetting | json }}
